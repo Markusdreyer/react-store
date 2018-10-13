@@ -1,0 +1,12 @@
+.pageTitle {
+	display: flex;
+	height: 10vh;
+	color: white;
+	background-color: rgb(53, 52, 63);
+	align-items: center;
+}
+
+.pageTitle p {
+	font-size: 30px;
+	margin: auto;
+}
