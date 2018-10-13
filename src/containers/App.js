@@ -8,7 +8,9 @@ import SelectionContainer from '../components/SelectionContainer/SelectionContai
 
 class App extends Component {
 	state = {
-		accesstoken: []
+		accesstoken: [],
+		numberOfProducts: 0,
+		conditionalString: 'baller'
 	}
 
 	/*
@@ -30,13 +32,50 @@ class App extends Component {
 		})
     }*/
 
+	decrement = () => {
+		if (!this.state.numberOfProducts <= 0) {
+			this.setState({
+				numberOfProducts: this.state.numberOfProducts - 1
+			})
+		}
+		this.numberOfProductsCheck()
+		console.log(this.state.numberOfProducts)
+	}
+
+	increment = () => {
+		this.setState({
+			numberOfProducts: this.state.numberOfProducts + 1
+		})
+		this.numberOfProductsCheck()
+		console.log(this.state.numberOfProducts)
+	}
+
+	numberOfProductsCheck = numberOfProducts => {
+		if (this.state.numberOfProducts === 1) {
+			this.setState({
+				conditionalString: 'ball'
+			})
+		} else {
+			this.setState({
+				conditionalString: 'baller'
+			})
+		}
+	}
+
 	render() {
 		return (
 			<div className="App">
-				<Header />
+				<Header
+					numberOfProducts={this.state.numberOfProducts}
+					conditionalString={this.state.conditionalString}
+				/>
 				<PageTitle />
 				<VideoContainer />
-				<SelectionContainer />
+				<SelectionContainer
+					decrement={this.decrement}
+					increment={this.increment}
+					numberOfProducts={this.state.numberOfProducts}
+				/>
 			</div>
 		)
 	}

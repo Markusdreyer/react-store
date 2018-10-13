@@ -1,13 +1,15 @@
 import React from 'react'
 import './Header.css'
 
-const header = () => {
+const header = props => {
 	return (
 		<div className="header">
 			<p style={{ fontFamily: 'Snell Roundhand' }}>mobilitetsball.no</p>
 			<p>
-				<span style={{ fontWeight: 'bold' }}>1 ball </span>
-				<span>i handlekurven</span>
+				<span style={{ fontWeight: 'bold' }}>
+					{props.numberOfProducts} {props.conditionalString}
+				</span>
+				<span> i handlekurven</span>
 			</p>
 		</div>
 	)
