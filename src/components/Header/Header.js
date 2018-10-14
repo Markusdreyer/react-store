@@ -1,16 +1,24 @@
 import React from 'react'
-import './Header.css'
+import App from '../../containers/App'
+import { Link } from 'react-router-dom'
+
 
 const header = props => {
 	return (
 		<div className="header">
-			<p style={{ fontFamily: 'Snell Roundhand' }}>mobilitetsball.no</p>
-			<p>
-				<span style={{ fontWeight: 'bold' }}>
-					{props.numberOfProducts} {props.conditionalString}
-				</span>
-				<span> i handlekurven</span>
-			</p>
+			<Link to="/">
+				<p style={{ fontFamily: 'Snell Roundhand' }}>
+					mobilitetsball.no
+				</p>
+			</Link>
+			<Link to="/checkout">
+				<p>
+					<span style={{ fontWeight: 'bold' }}>
+						{props.numberOfProducts} {props.conditionalString}
+					</span>
+					<span> i handlekurven</span>
+				</p>
+			</Link>
 		</div>
 	)
 }
